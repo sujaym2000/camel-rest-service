@@ -1,4 +1,4 @@
-package com.camel.solution.rest.route.downstream;
+package com.camel.solution.rest.route.backend;
 
 import com.camel.solution.rest.dto.OrderDto;
 import org.apache.camel.Exchange;

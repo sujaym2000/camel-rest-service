@@ -37,40 +37,42 @@ public class OrdersRouter extends RouteBuilder {
 
         onException(Throwable.class)
                 .handled(true)
-                .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(500))
-                .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.APPLICATION_JSON_VALUE))
-                .setBody(simple("{\"message\": \"Server Error \"}"));
+                    .log("${exception.message}")
+                    .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(500))
+                    .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.APPLICATION_JSON_VALUE))
+                    .setBody(simple("{\"message\": \"Server Error \"}"));
 
         onException(JsonValidationException.class)
-                .log("${exception.message}")
-                .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400))
-                .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.APPLICATION_JSON_VALUE))
                 .handled(true)
+                    .log("${exception.message}")
+                    .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400))
+                    .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.APPLICATION_JSON_VALUE))
+
                 .setBody(simple("{\"message\": \"Invalid order request\"}"));
 
         onException(InvalidFormatException.class)
-                .log("${exception.message}")
-                .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400))
-                .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.APPLICATION_JSON_VALUE))
                 .handled(true)
-                .setBody(simple("{\"message\": \"Invalid order format\"}"));
+                    .log("${exception.message}")
+                    .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400))
+                    .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.APPLICATION_JSON_VALUE))
+                    .setBody(simple("{\"message\": \"Invalid order format\"}"));
 
         rest()
                 .get("/customers/{customerId}/orders")
-                .produces(MediaType.APPLICATION_JSON_VALUE)
-                .route()
-                .log("routing request to >> getOrdersFromDownStream")
-                .to("direct:getOrdersFromDownStream")
+                    .produces(MediaType.APPLICATION_JSON_VALUE)
+                    .route()
+                        .log("routing request to >> getOrdersFromDownStream")
+                        .to("direct:getOrdersFromDownStream")
                 .endRest();
 
         rest()
                 .post("/customers/orders")
-                .consumes(MediaType.APPLICATION_JSON_VALUE)
-                .produces(MediaType.APPLICATION_JSON_VALUE)
-                .route()
-                .log("routing request to >> createOrderToDownStream")
-                .to("direct:createOrderToDownStream")
-                .log("Create order request completed ")
+                    .consumes(MediaType.APPLICATION_JSON_VALUE)
+                    .produces(MediaType.APPLICATION_JSON_VALUE)
+                    .route()
+                    .log("routing request to >> createOrderToDownStream")
+                        .to("direct:createOrderToDownStream")
+                    .log("Create order request completed ")
                 .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(HttpStatus.CREATED.value()))
                 .setBody(simple("{\"message\": \"Order created successfully.\"}"))
                 .endRest();
