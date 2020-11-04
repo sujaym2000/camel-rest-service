@@ -36,7 +36,6 @@ POST  /customers/orders
 ```
 GET   /backend/customers/{customerId}/orders
 POST  /backend/customers/orders
-
 ```
 
 #### Sample GET order details response 
