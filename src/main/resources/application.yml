@@ -14,3 +14,6 @@ logging:
   level:
     root: INFO
     org.springframework.web: INFO
+
+backend:
+  orderservice.url: http://localhost:8080

@@ -17,8 +17,11 @@ public class OrdersRouter extends RouteBuilder {
     @Value("${server.port}")
     private String port;
 
-    private static String DOWN_STREAM_GET_URL = "http://localhost:%s/backend/customers/${header.customerId}/orders?bridgeEndpoint=true";
-    private static String DOWN_STREAM_POST_URL = "http://localhost:%s/backend/customers/orders?bridgeEndpoint=true";
+    @Value("${backend.orderservice.url}")
+    private String backendServiceUrl;
+
+    private static String DOWN_STREAM_GET_URL = "%s/backend/customers/${header.customerId}/orders?bridgeEndpoint=true";
+    private static String DOWN_STREAM_POST_URL = "%s/backend/customers/orders?bridgeEndpoint=true";
 
     @Override
     public void configure() {
@@ -79,7 +82,7 @@ public class OrdersRouter extends RouteBuilder {
 
         from("direct:getOrdersFromDownStream")
                 .log("Calling backend service to get orders for customer")
-                .toD(String.format(DOWN_STREAM_GET_URL, port))
+                .toD(String.format(DOWN_STREAM_GET_URL, backendServiceUrl))
                 .log("Received getOrders response from backend service")
                 .marshal(xmlJsonFormat);
 
@@ -88,7 +91,7 @@ public class OrdersRouter extends RouteBuilder {
                 .log("Create order request validated")
                 .unmarshal(xmlJsonFormat)
                 .log("Calling backend service for create order")
-                .to(String.format(DOWN_STREAM_POST_URL, port));
+                .to(String.format(DOWN_STREAM_POST_URL, backendServiceUrl));
     }
 
 }
