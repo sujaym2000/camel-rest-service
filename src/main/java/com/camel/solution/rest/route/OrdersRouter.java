@@ -1,4 +1,4 @@
-package com.camel.test.rest.route;
+package com.camel.solution.rest.route;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.apache.camel.Exchange;

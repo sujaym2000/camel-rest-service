@@ -1,4 +1,4 @@
-package com.camel.test;
+package com.camel.solution;
 
 import static org.junit.Assert.assertEquals;
 import org.json.JSONException;

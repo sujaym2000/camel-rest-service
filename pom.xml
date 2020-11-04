@@ -9,7 +9,7 @@
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.camel.test</groupId>
+    <groupId>com.camel.solution</groupId>
     <artifactId>camel-rest-service</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>

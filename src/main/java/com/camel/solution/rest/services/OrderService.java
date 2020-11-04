@@ -1,6 +1,6 @@
-package com.camel.test.rest.services;
+package com.camel.solution.rest.services;
 
-import com.camel.test.rest.dto.OrderDto;
+import com.camel.solution.rest.dto.OrderDto;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

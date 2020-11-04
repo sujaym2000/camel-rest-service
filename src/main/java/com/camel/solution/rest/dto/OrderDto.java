@@ -1,4 +1,4 @@
-package com.camel.test.rest.dto;
+package com.camel.solution.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

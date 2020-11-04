@@ -1,4 +1,4 @@
-package com.camel.test;
+package com.camel.solution;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

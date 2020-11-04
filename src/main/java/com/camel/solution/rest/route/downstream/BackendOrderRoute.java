@@ -1,6 +1,6 @@
-package com.camel.test.rest.route.downstream;
+package com.camel.solution.rest.route.downstream;
 
-import com.camel.test.rest.dto.OrderDto;
+import com.camel.solution.rest.dto.OrderDto;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
