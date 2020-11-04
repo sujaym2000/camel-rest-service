@@ -24,7 +24,7 @@ strongly preferred)
 ```
 #### Solution Explanation
 
-Front end exposed 2 REST APIs to create and get order details for customer. Internally It make call to back end service which consumes xml data format. Solution does json request validation and transforms request to downstream api expected xml format. Test provides end to end integration test. for happy journey and negative scenarios. 
+Front end exposed 2 REST APIs to create and get order details for customer. Internally It makes call to back end service which consumes xml data format. Solution makes json request validation and transforms request to downstream api expected xml format. Test are end to end integration test to cover for happy journey and negative scenarios. 
 
 #### Exposed Endpoints
 ```
