@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "custId": {
+      "type": "string"
+    },
+    "prdctId": {
+      "type": "string"
+    },
+    "ordStatus": {
+      "type": "string"
+    },
+    "qty": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "custId",
+    "prdctId",
+    "ordStatus",
+    "qty"
+  ]
+}

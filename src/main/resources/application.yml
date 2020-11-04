@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+camel:
+  component:
+    servlet:
+      mapping:
+        context-path: /*
+  springboot:
+    main-run-controller: true
+    json-validator:
+      basic-property-binding: false
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO

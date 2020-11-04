@@ -1,0 +1,6 @@
+<orderDto>
+    <custId>x3y2z1</custId>
+    <prdctId>lego</prdctId>
+    <ordStatus>In-progress</ordStatus>
+    <qty>2</qty>
+</orderDto>
