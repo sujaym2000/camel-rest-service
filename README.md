@@ -28,15 +28,14 @@ Front end exposed 2 REST APIs to create and get order details for customer. Inte
 
 #### Exposed Endpoints
 ```
-/customers/{customerId}/orders
-/customers/orders
-
+GET   /customers/{customerId}/orders
+POST  /customers/orders
 ```
 
 #### Backend Endpoints
 ```
-/backend/customers/{customerId}/orders
-/backend/customers/orders
+GET   /backend/customers/{customerId}/orders
+POST  /backend/customers/orders
 
 ```
 
