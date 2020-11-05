@@ -58,5 +58,19 @@ POST  /backend/customers/orders
 }
 ```
 
+##### Docker image generation 
+
+Spring-boot mavne plugin provides goal to build docker image, which internally maintains DockerFile and builds image.
+
+```
+mvn spring-boot:build-image
+```
+
+After succesful completion of build you can run image using following docker command, which will start docker application, Application should be able to access from postman on port 8000,
+
+```
+docker run --publish 8000:8080 --detach --name camel-rest-service camel-rest-service:1.0-SNAPSHOT
+```
+
 
 
